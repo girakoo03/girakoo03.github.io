@@ -1,0 +1,9 @@
+/*
+  Content-Security-Policy: default-src 'none'; script-src 'sha384-j4b685KOj5IgE7wadEvjrBWhalj+HkUf8aswhwL7wTXLxYKiEOCydfG09mgyq6By'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src https://formsubmit.co; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action https://formsubmit.co; frame-ancestors 'self'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
