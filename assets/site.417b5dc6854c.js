@@ -3,7 +3,7 @@
   const routes={main:'/',story:'/story/',perfume:'/products/perfume/',diffuser:'/products/diffuser/',wash:'/products/hand-wash/',cream:'/products/hand-cream/'};
   const names=['컬렉션 전반','오 드 퍼퓸 50 mL','디퓨저 150 mL','핸드워시 250 mL','핸드크림 50 mL'];
   const types=['유통·입점','기업·기관 선물'];
-  const recipient='ballo03@naver.com';
+  const recipient='03chan.choi@gmail.com';
   const deliveryEndpoint='https://formsubmit.co/ajax/'+recipient;
   const deliveryFormURL=typeof location!=='undefined'?location.href.split('#')[0]:'';
   const exportRoot=typeof document!=='undefined'&&document.currentScript?new URL('../',document.currentScript.src):null;
@@ -140,7 +140,7 @@
   }
   document.querySelectorAll('[data-contact]').forEach(button=>button.addEventListener('click',()=>{
     if(!dialog||!form)return;
-    if(typeof dialog.showModal!=='function'){location.href='mailto:ballo03@naver.com';return;}
+    if(typeof dialog.showModal!=='function'){location.href='mailto:03chan.choi@gmail.com';return;}
     const keepDraft=['error','uncertain','pending'].includes(deliveryState);
     if(!keepDraft){form.reset();setDeliveryState('idle');status.hidden=true;status.textContent='';}
     clearCopy();opener=button;
@@ -160,7 +160,7 @@
   document.getElementById('copy-inquiry')?.addEventListener('click',()=>{
     copyInquiry(inquiryText(inquiryType,valuesForCopy(),language),localCopy.copied);
   });
-  document.getElementById('copy-email')?.addEventListener('click',()=>copyInquiry('ballo03@naver.com',localCopy.emailCopied));
+  document.getElementById('copy-email')?.addEventListener('click',()=>copyInquiry('03chan.choi@gmail.com',localCopy.emailCopied));
   document.getElementById('email-fallback')?.addEventListener('click',()=>{
     showStatus(localUI.status,'copy');location.href=mailDraft(inquiryType,valuesForCopy(),language);
   });
