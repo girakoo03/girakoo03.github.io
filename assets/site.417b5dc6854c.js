@@ -3,8 +3,8 @@
   const routes={main:'/',story:'/story/',perfume:'/products/perfume/',diffuser:'/products/diffuser/',wash:'/products/hand-wash/',cream:'/products/hand-cream/'};
   const names=['컬렉션 전반','오 드 퍼퓸 50 mL','디퓨저 150 mL','핸드워시 250 mL','핸드크림 50 mL'];
   const types=['유통·입점','기업·기관 선물'];
-  const recipient='03chan.choi@gmail.com';
-  const deliveryEndpoint='https://formsubmit.co/ajax/'+recipient;
+  const recipient='ballo03@naver.com';const accessKey='22ec9e5d-1b30-41fe-8852-5a0832727885';
+  const deliveryEndpoint='https://api.web3forms.com/submit';
   const deliveryFormURL=typeof location!=='undefined'?location.href.split('#')[0]:'';
   const exportRoot=typeof document!=='undefined'&&document.currentScript?new URL('../',document.currentScript.src):null;
   function portableRoute(target){if(!exportRoot)return target;const parts=target.split('#');return new URL(parts[0].replace(/^\//,'')+'index.html',exportRoot).href+(parts[1]?'#'+parts[1]:'');}
@@ -54,7 +54,7 @@
     const email=String(values.email||'').trim();
     if(!/^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$/.test(email)||email.length>254||!String(values.message||'').trim()||String(values.message).length>2000||values._honey)throw new Error('invalid');
     const draft=new URL(mailDraft(type,values,language));
-    return {name:String(values.name||'').replace(/[\r\n\u0000]/g,' ').slice(0,100),email,_replyto:email,_subject:draft.searchParams.get('subject'),message:draft.searchParams.get('body'),_template:'table',_url:deliveryFormURL,_honey:''};
+    return {access_key:accessKey,name:String(values.name||'').replace(/[\r\n\u0000]/g,' ').slice(0,100),email,subject:draft.searchParams.get('subject'),from_name:'BALLO',message:draft.searchParams.get('body'),page:deliveryFormURL};
   }
   // Treat activation and ambiguous responses separately from accepted submissions.
   // An HTTP 200 alone does not establish that the enquiry has been accepted.
@@ -140,7 +140,7 @@
   }
   document.querySelectorAll('[data-contact]').forEach(button=>button.addEventListener('click',()=>{
     if(!dialog||!form)return;
-    if(typeof dialog.showModal!=='function'){location.href='mailto:03chan.choi@gmail.com';return;}
+    if(typeof dialog.showModal!=='function'){location.href='mailto:ballo03@naver.com';return;}
     const keepDraft=['error','uncertain','pending'].includes(deliveryState);
     if(!keepDraft){form.reset();setDeliveryState('idle');status.hidden=true;status.textContent='';}
     clearCopy();opener=button;
@@ -160,7 +160,7 @@
   document.getElementById('copy-inquiry')?.addEventListener('click',()=>{
     copyInquiry(inquiryText(inquiryType,valuesForCopy(),language),localCopy.copied);
   });
-  document.getElementById('copy-email')?.addEventListener('click',()=>copyInquiry('03chan.choi@gmail.com',localCopy.emailCopied));
+  document.getElementById('copy-email')?.addEventListener('click',()=>copyInquiry('ballo03@naver.com',localCopy.emailCopied));
   document.getElementById('email-fallback')?.addEventListener('click',()=>{
     showStatus(localUI.status,'copy');location.href=mailDraft(inquiryType,valuesForCopy(),language);
   });

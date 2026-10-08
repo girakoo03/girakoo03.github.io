@@ -1,5 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'none'; script-src 'sha384-35ddACEQyTxmCXbycnrnasJJfiaYQVgArz1eSIWEpYj5aAehIDlXd4hpIS3cbtaw'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src https://formsubmit.co; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action https://formsubmit.co; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'none'; script-src 'sha384-9+jVvCT8kFIza27senZOIiZZQG9u56hTnGgLiL7FzeHotLUSqsQRro54gV7OS4sy'; script-src-attr 'none'; style-src 'self'; style-src-attr 'none'; font-src 'self'; img-src 'self' data:; connect-src https://api.web3forms.com; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action https://api.web3forms.com; frame-ancestors 'self'
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Permissions-Policy: camera=(), microphone=(), geolocation=()
